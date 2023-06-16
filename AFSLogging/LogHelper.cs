@@ -53,11 +53,5 @@ namespace AFSLogging
         {
             return Enum.GetName(typeof(LogLevel), level);
         }
-
-
-        internal static void IncrementCounter(ref ulong counter, bool isEnable)
-        {
-            if (isEnable) counter++;
-        }
     }
 }

@@ -1,7 +1,7 @@
 ﻿namespace AFSLogging
 {
     ///// <summary>
-    ///// Only test class
+    ///// Only test class. For use Main need to set project type from Library to Console App
     ///// </summary> 
     //internal class Program
     //{
