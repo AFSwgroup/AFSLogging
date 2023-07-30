@@ -41,7 +41,10 @@
         public void Log(string message)
         {
             LogHelper.WriteLog(LogFilePath, message);
-            if (CounterEnable)
+
+            if (!CounterEnable) return;
+
+            unchecked
             {
                 LogCount++;
                 LogAllCount++;
@@ -57,7 +60,10 @@
         public void Log(string message, LogLevel level)
         {
             LogHelper.WriteLog(LogFilePath, message, level);
-            if (CounterEnable)
+
+            if (!CounterEnable) return;
+
+            unchecked
             {
                 LogCount++;
                 LogAllCount++;

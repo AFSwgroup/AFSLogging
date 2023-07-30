@@ -47,7 +47,9 @@
         {
             LogHelper.WriteLog(path, message);
 
-            if (CounterEnable)
+            if (!CounterEnable) return;
+
+            unchecked
             {
                 LogCount++;
             }
@@ -64,7 +66,9 @@
         {
             LogHelper.WriteLog(path, message, level);
 
-            if (CounterEnable)
+            if (!CounterEnable) return;
+
+            unchecked
             {
                 LogCount++;
             }

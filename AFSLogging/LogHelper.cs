@@ -14,18 +14,21 @@ namespace AFSLogging
                 File.Create(path).Close();
             }
 
+            DateTime now = DateTime.Now;
+
             string level = LevelToString(l);
             StringBuilder stringBuilder = new StringBuilder();
             stringBuilder.Append('[');
-            stringBuilder.Append(DateTime.Now);
+            stringBuilder.Append(now);
             stringBuilder.Append('.');
-            stringBuilder.Append(DateTime.Now.Millisecond);
+            stringBuilder.Append(now.Millisecond);
             stringBuilder.Append(']');
             stringBuilder.Append(' ');
             stringBuilder.Append(level);
             stringBuilder.Append(' ');
             stringBuilder.Append(msg);
             stringBuilder.Append('\n');
+
             File.AppendAllText(path, stringBuilder.ToString());
         }
 
@@ -44,7 +47,9 @@ namespace AFSLogging
                 return;
             }
 
-            string[] normals = text.Split("\n", StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries);
+            string[] normals = text.Split("\n", 
+                StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries);
+
             File.WriteAllLines(path, normals);
         }
 
